@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="143.979" height="102.725" viewBox="0 0 143.979 102.725">
+  <g id="Groupe_777" data-name="Groupe 777" transform="translate(-412.922 -265)">
+    <g id="Groupe_768" data-name="Groupe 768" transform="translate(432.744 274.87)">
+      <path id="Tracé_1254" data-name="Tracé 1254" d="M42.927,0A42.927,42.927,0,1,1,0,42.927,42.927,42.927,0,0,1,42.927,0Z" transform="translate(0.428 0.428)" fill="#02020f"/>
+      <path id="Tracé_1252" data-name="Tracé 1252" d="M380.028,274.546a43.355,43.355,0,1,1,43.355-43.355A43.4,43.4,0,0,1,380.028,274.546Zm0-85.853a42.5,42.5,0,1,0,42.5,42.5A42.546,42.546,0,0,0,380.028,188.693Z" transform="translate(-336.673 -187.836)" fill="#313134" stroke="#313134" stroke-width="4"/>
+      <path id="Tracé_1253" data-name="Tracé 1253" d="M426.719,306.078a4.774,4.774,0,0,1-3.82-1.91l-11.711-15.615a4.775,4.775,0,0,1,7.64-5.73l7.662,10.215,19.678-29.517a4.775,4.775,0,0,1,7.946,5.3l-23.422,35.133a4.777,4.777,0,0,1-3.841,2.125Z" transform="translate(-389.22 -240.382)" fill="#fff"/>
+    </g>
+    <g id="Groupe_596" data-name="Groupe 596" transform="translate(412.922 265)">
+      <rect id="Rectangle_221" data-name="Rectangle 221" width="5.923" height="4.912" transform="translate(12.314 4.197)" fill="#ce181e"/>
+      <rect id="Rectangle_222" data-name="Rectangle 222" width="4.633" height="3.842" transform="translate(0.795)" fill="#ce181e"/>
+      <rect id="Rectangle_223" data-name="Rectangle 223" width="7.05" height="5.846" transform="translate(0 15.481)" fill="#ce181e"/>
+      <rect id="Rectangle_224" data-name="Rectangle 224" width="1.123" height="0.93" transform="translate(12.826 13.207)" fill="#ce181e"/>
+    </g>
+    <g id="Groupe_598" data-name="Groupe 598" transform="translate(515.666 345.343)">
+      <rect id="Rectangle_215" data-name="Rectangle 215" width="3.287" height="2.726" transform="translate(0 19.657)" fill="#ce181e"/>
+      <rect id="Rectangle_216" data-name="Rectangle 216" width="10.18" height="8.442" transform="translate(31.054)" fill="#ce181e"/>
+      <rect id="Rectangle_217" data-name="Rectangle 217" width="2.9" height="2.404" transform="translate(20.95 7.373)" fill="#ce181e"/>
+    </g>
+    <g id="Groupe_591" data-name="Groupe 591" transform="translate(523.735 276.698)">
+      <path id="Tracé_1232" data-name="Tracé 1232" d="M350.974,34.26V29.146h5.114a.661.661,0,0,0,0-1.289h-5.114V22.743a.661.661,0,0,0-1.289,0v5.114h-5.114a.661.661,0,0,0,0,1.289h5.114V34.26a.661.661,0,0,0,1.289,0Z" transform="translate(-344.056 -22.228)" fill="#ffc20e" stroke="#ffc20e" stroke-miterlimit="10" stroke-width="1" fillRule="evenodd"/>
+    </g>
+  </g>
+</svg>

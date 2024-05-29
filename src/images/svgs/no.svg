@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="bounds" width="40" height="40" transform="translate(104 1313)" fill="rgba(28,143,248,0.34)" opacity="0"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_de_masques_2" data-name="Groupe de masques 2" transform="translate(-104 -1313)" clip-path="url(#clip-path)">
+    <path id="close-outline" d="M61.087,61.087,27.81,27.81m33.277,0L27.81,61.087" transform="translate(79.551 1288.551)" fill="rgba(0,0,0,0)" stroke="#e0e4eb" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4.5"/>
+  </g>
+</svg>

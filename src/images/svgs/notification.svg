@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_821" data-name="Rectangle 821" width="38" height="38" transform="translate(648 497)" fill="#e0e4eb"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_de_masques_28" data-name="Groupe de masques 28" transform="translate(-648 -497)" clip-path="url(#clip-path)">
+    <g id="bell" transform="translate(651.437 497)">
+      <path id="Tracé_1285" data-name="Tracé 1285" d="M38.352,39.364h-19A5.337,5.337,0,0,1,14,34.631a5.182,5.182,0,0,1,2.591-4.923V22.091A12.091,12.091,0,0,1,28.679,10h1.727A12.091,12.091,0,0,1,42.5,22.091v7.617a5.182,5.182,0,0,1,2.591,4.923C44.881,36.911,43.015,39.364,38.352,39.364ZM28.679,13.455a8.636,8.636,0,0,0-8.636,8.636v8.757a1.727,1.727,0,0,1-1.3,1.727,1.727,1.727,0,0,0-1.3,1.762,1.9,1.9,0,0,0,1.935,1.572h19c.725,0,3.144-.121,3.282-1.572a1.727,1.727,0,0,0-1.33-1.883,1.727,1.727,0,0,1-1.3-1.727V22.091a8.636,8.636,0,0,0-8.636-8.636Z" transform="translate(-13.98 -10)" fill="#e0e4eb"/>
+      <path id="Tracé_1286" data-name="Tracé 1286" d="M30.909,53.182C27.04,53.182,24,50.9,24,48h3.455c0,.708,1.347,1.727,3.455,1.727S34.364,48.708,34.364,48h3.455C37.818,50.9,34.778,53.182,30.909,53.182Z" transform="translate(-15.346 -15.182)" fill="#e0e4eb"/>
+    </g>
+  </g>
+</svg>

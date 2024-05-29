@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="39.091" viewBox="0 0 43 39.091">
+  <g id="Posts" transform="translate(-5 -5)">
+    <g id="solid" transform="translate(0 -1)">
+      <path id="Tracé_1086" data-name="Tracé 1086" d="M16,17V34.677H27.785a9.821,9.821,0,0,0,9.821-9.821V17Z" transform="translate(10.395 10.414)" fill="#fff"/>
+      <path id="Tracé_1087" data-name="Tracé 1087" d="M16,23.677H37.605V15.821A9.821,9.821,0,0,0,27.785,6H16Z" transform="translate(10.395 0)" fill="#fff"/>
+      <path id="Tracé_1088" data-name="Tracé 1088" d="M22.677,6H14.821A9.8,9.8,0,0,0,5,15.773V35.318a9.8,9.8,0,0,0,9.821,9.773h7.857Z" transform="translate(0 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

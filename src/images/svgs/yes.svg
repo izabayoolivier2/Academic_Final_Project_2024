@@ -1,0 +1,10 @@
+<svg id="video-S-light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="bounds" width="40" height="40" fill="rgba(28,143,248,0.34)" opacity="0"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_de_masques_1" data-name="Groupe de masques 1" clip-path="url(#clip-path)">
+    <path id="checkmark-outline" d="M47.233,18.225,23.738,42.676,13.669,33.507" transform="translate(-10.447 -9.983)" fill="rgba(0,0,0,0)" stroke="#e0e4eb" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4.5"/>
+  </g>
+</svg>
