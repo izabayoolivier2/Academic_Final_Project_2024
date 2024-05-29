@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_846" data-name="Rectangle 846" width="36" height="36" transform="translate(1586 -292)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_de_masques_37" data-name="Groupe de masques 37" transform="translate(-1586 292)" clip-path="url(#clip-path)">
+    <g id="camera" transform="translate(1583.429 -294.571)">
+      <circle id="Ellipse_1" data-name="Ellipse 1" cx="5.143" cy="5.143" r="5.143" transform="translate(15.429 16.714)" fill="#fff"/>
+      <path id="Tracé_1304" data-name="Tracé 1304" d="M34.714,11.571H29.973a1.173,1.173,0,0,1-.773-.4L27.116,7.88a1.247,1.247,0,0,0-.11-.149,3.58,3.58,0,0,0-2.738-1.3H16.875a3.58,3.58,0,0,0-2.738,1.3,1.247,1.247,0,0,0-.11.149l-2.084,3.295a1.052,1.052,0,0,1-.693.4v-.643A1.286,1.286,0,0,0,9.964,9.648H8.036A1.286,1.286,0,0,0,6.75,10.933v.643H6.429a3.861,3.861,0,0,0-3.857,3.857V30.857a3.861,3.861,0,0,0,3.857,3.857H34.714a3.861,3.861,0,0,0,3.857-3.857V15.429A3.861,3.861,0,0,0,34.714,11.571Zm-14.143,18a7.714,7.714,0,1,1,7.714-7.714,7.714,7.714,0,0,1-7.714,7.714Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>
