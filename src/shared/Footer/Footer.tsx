@@ -15,8 +15,8 @@ export interface WidgetFooterMenu {
 const menus = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About us" },
-  { href: "/explore", label: "Explore" },
-  { href: "/blog", label: "Blog" },
+  // { href: "/explore", label: "Explore" },
+  // { href: "/blog", label: "Blog" },
 ];
 const forRent = [
   { href: "/vendors", label: "Vendors" },
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
             Event planning, streamlining and Centralized Coordination!
           </div>
         </div>
-        <div className=" md:w-fit w-full justify-center">
+        {/* <div className=" md:w-fit w-full justify-center">
           <h2 className="font-bold md:text-lg border-b py-3 text-base text-neutral-700 dark:text-onPrimaryBtnColor mb-8">
             Useful links
           </h2>
@@ -67,8 +67,8 @@ const Footer: React.FC = () => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className=" md:w-fit w-full justify-center">
+        </div> */}
+        {/* <div className=" md:w-fit w-full justify-center">
           <h2 className="font-bold md:text-lg border-b py-3 text-base text-neutral-700 dark:text-onPrimaryBtnColor mb-8">
             Explore Items for rent
           </h2>
@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
 
       <p className="text-onPrimary text-center pt-5 mt-10 border-t border-primaryBtnColor border-opacity-30">

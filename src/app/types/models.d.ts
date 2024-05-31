@@ -14,3 +14,18 @@ export interface Product {
   price: number;
   quantity: number;
 }
+
+export interface Cake {
+  title: string;
+  price: number;
+  desc: string;
+  image: string;
+}
+
+export interface Order {
+  eventType: string;
+  total: number;
+  services: any[];
+  customerInfo: any;
+  error: string | null;
+}

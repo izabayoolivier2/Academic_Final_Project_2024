@@ -49,7 +49,7 @@ export default function SectionHero2() {
             <PrimaryButton
               className="text-onPrimaryBtnColor"
               sizeClass="py-3 px-6 sm:py-5 sm:px-9 flex items-center gap-3"
-              href={"/"}
+              href={"/plan-event"}
             >
               <span className="font-bold text-xl">Get Started</span>
             </PrimaryButton>

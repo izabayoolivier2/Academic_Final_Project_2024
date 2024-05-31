@@ -4,68 +4,16 @@ import { getCategoriesFromDB } from '@/app/redux/features/categoryThunk';
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
 import CardCategory2 from "@/components/CardCategories/CardCategory2";
 import Heading from "@/components/Heading/Heading";
-import cart1jpg from "@/images/collections/cat1.jpg";
-import cart2jpg from "@/images/collections/cat2.jpg";
-import cart3jpg from "@/images/collections/cat3.jpg";
-import cart4jpg from "@/images/collections/cat4.jpg";
-import cart5jpg from "@/images/collections/cat5.jpg";
 import { FC, useEffect, useRef, useState } from "react";
 // @ts-ignore
 import Glide from "@glidejs/glide/dist/glide.esm";
-import { StaticImageData } from "next/image";
 import { Reveal } from "../Reveal";
 
-export interface CardCategoryData {
-  name: string;
-  desc: string;
-  img: string | StaticImageData;
-  color?: string;
-}
-const CATS: any = [
-  {
-    name: "Wedding",
-    desc: "Plan your wedding with us",
-    img: cart1jpg,
-    color: "bg-indigo-100",
-  },
-  {
-    name: "Graduation",
-    desc: "",
-    img: cart2jpg,
-    color: "bg-indigo-100",
-  },
-  {
-    name: "Birthday",
-    desc: "",
-    img: cart3jpg,
-    color: "bg-slate-100",
-  },
-  {
-    name: "Funeral",
-    desc: "",
-    img: cart4jpg,
-    color: "bg-sky-100",
-  },
-  {
-    name: "Concert",
-    desc: "",
-    img: cart5jpg,
-    color: "bg-orange-100",
-  },
-  ,
-  {
-    name: "Others",
-    desc: "",
-    img: cart3jpg,
-    color: "bg-slate-100",
-  }
-];
 export interface SectionSliderCategoriesProps {
   className?: string;
   itemClassName?: string;
   heading?: string;
   subHeading?: string;
-  data?: CardCategoryData[];
 }
 
 const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
@@ -73,7 +21,6 @@ const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
   subHeading = "",
   className = "",
   itemClassName = "",
-  data = CATS,
 }) => {
   const sliderRef = useRef(null);
   const [isShow, setIsShow] = useState(false);
@@ -138,11 +85,11 @@ const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
         </Heading>
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {data.map((item: any, index: any) => (
+            {categories.map((item: any, index: any) => (
               <li key={index} className={`glide__slide ${itemClassName}`}>
                 <CardCategory2
                   featuredImage={item.image}
-                  name={item.name}
+                  name={item.names}
                 />
               </li>
             ))}
