@@ -39,7 +39,6 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         dispatch(getUserByUserId(user.uid));
-        console.log("user", user);
         return setIsLoggedIn(true)
       }
     });
@@ -252,7 +251,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
             {renderSearchForm()}
           </div>
           <AvatarDropdown />
-          <CartDropdown />
+          {/* <CartDropdown /> */}
           <div className="flex items-center ">
             <MenuBar />
           </div>

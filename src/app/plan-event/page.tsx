@@ -22,13 +22,13 @@ import {
   getCakes,
 } from "../redux/features/categoryThunk";
 import { Category } from "../models/Category";
-import CategoriCreator from "./ctegoryCreator";
 import { Cake } from "../types/models";
 import { storeOrder } from "../redux/features/order/orderThunk";
 import * as Yup from "yup";
-import { Formik, Form, Field, FormikHelpers, ErrorMessage } from "formik";
-import Button from "@/shared/Button/Button";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
+import Input from "@/shared/Input/Input";
+import Select from "@/shared/Select/Select";
+import Label from "@/components/Label/Label";
 
 interface customerInfo {
   email: string;
@@ -76,6 +76,11 @@ const AccountPage = () => {
   const [next, setNext] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("What are we planning today?");
+  const [names, setNames] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  const [gender, setGender] = useState('');
 
   const dispatch = useAppDispatch();
   const { categories, cakes, cars, venues, food, photos } = useAppSelector(
@@ -98,13 +103,6 @@ const AccountPage = () => {
     dispatch(getVenues());
   }, [dispatch]);
 
-  const initialValues: customerInfo = {
-    email: "",
-    names: "",
-    phone: "",
-    address: "",
-    gender: "",
-  };
 
   let totalPrice = 0;
   if (selectedVenue) {
@@ -190,43 +188,42 @@ const AccountPage = () => {
     }
   };
 
+  
   const handleSubmit = async (
-    values: customerInfo,
-    { setSubmitting }: FormikHelpers<customerInfo>
   ) => {
     try {
-      setLoading(true);
-
+    
+    setLoading(true);
+    
       // Dispatch an action to update the user data in Redux
-      await dispatch(
+    const response = await dispatch(
         storeOrder({
           eventType: selectedCategory?.names,
           total: totalPrice,
           services: [
-            selectedCake ? selectedCake : null,
-            selectedCar ? selectedCar : null,
-            selectedFood ? selectedFood : null,
-            selectedPhoto ? selectedPhoto : null,
-            selectedVenue ? selectedVenue : null,
+            selectedCake ? selectedCake : "",
+            selectedCar ? selectedCar : "",
+            selectedFood ? selectedFood : "",
+            selectedPhoto ? selectedPhoto : "",
+            selectedVenue ? selectedVenue : "",
           ],
-          customerInfo: user
-            ? {
-                address: user.address,
-                email: user.email,
-                gender: user.gender,
-                names: user.names,
-                phone: user.phone,
-              }
-            : values,
+          customerInfo:{
+                address: user?.address || address,
+                email: user?.email || email,
+                gender: user?.gender || gender,
+                names: user?.names || names,
+                phone: user?.phone || phone,
+              },
           payment: selectedPayment,
         })
       );
       setLoading(false);
       toast.success("Order placed successfully");
+      // Redirect to a success page
+      window.location.href = "/";
     } catch (error) {
-      console.log(error);
       setLoading(false);
-      toast.error("Error Placing Order");
+      toast.error("Error placing order");
     }
   };
 
@@ -247,7 +244,7 @@ const AccountPage = () => {
       <div className="grid grid-cols-12 gap-4">
         <div
           className={`col-span-12 md:col-span-8 w-full h-fit p-4 flex gap-4 md:grid  ${
-            next === "personalInfo" && !user
+            next === "personalInfo" || next === "payment" && !user
               ? "md:grid-cols-1"
               : "md:grid-cols-4"
           }`}
@@ -398,148 +395,90 @@ const AccountPage = () => {
                 ))}
             </>
           ) : selectedCategory && next === "payment" ? (
-            <div className="h-fit p-4 flex gap-4 md:grid md:grid-cols-4">
+            <div className="h-fit p-4 flex gap-4 md:grid md:grid-cols-1">
+              {["MTN MOMO", "Paypal", "Bank Transfer", "Card", "CASH"].map((item, index) => (
               <div
-                onClick={() => handlePaymentSelect("MTN MOMO")}
-                className="p-2 rounded-lg bg-grey  bg-opacity-50 cursor-pointer h-[100%]"
+              key={index}
+                onClick={() => handlePaymentSelect(item)}
+                className="p-4 rounded-lg bg-grey  bg-opacity-50 cursor-pointer h-[100%]"
               >
-                <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                  MTN MOMO
+                <h2 className="font-semibold text-md text-neutral-400 dark:text-typo-light">
+                  {item}
                 </h2>
               </div>
-              <div
-                onClick={() => handlePaymentSelect("Airtel Money")}
-                className="p-2 rounded-lg bg-grey  bg-opacity-50 cursor-pointer h-[100%]"
-              >
-                <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                  Airtel Money
-                </h2>
-              </div>
-              <div
-                onClick={() => handlePaymentSelect("Card")}
-                className="p-2 rounded-lg bg-grey  bg-opacity-50 cursor-pointer h-[100%]"
-              >
-                <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                  Card
-                </h2>
-              </div>
+              ))}
             </div>
           ) : selectedCategory && next === "personalInfo" && !user ? (
             <div className="w-[70%] mx-auto">
-              <Formik
-                initialValues={initialValues}
-                validationSchema={signinSchema}
-                onSubmit={handleSubmit}
-              >
-                {({ errors, touched }) => (
-                  <Form>
-                    <div className="mb-4 w-full">
-                      <label
-                        htmlFor="email"
-                        className="block text-darkGray4 font-regular text-xs md:text-lg mb-2"
-                      >
-                        Full name
-                      </label>
-                      <Field
-                        type="text"
-                        id="names"
-                        name="names"
-                        placeholder="Enter your full name"
-                        className={`w-full px-4 py-2 md:py-3 rounded-lg border ${
-                          errors.names && touched.names
-                            ? " border-red-500"
-                            : "dark:border-slate-600 border-slate-300"
-                        }   text-neutral-800 dark:text-neutral-200  placeholder-placeholder bg-transparent focus:ring-blue-500 focus:border-blue-500`}
-                      />
-                      <ErrorMessage
-                        name="names"
-                        component="div"
-                        className="text-red text-xs md:text-lg"
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label
-                        htmlFor="email"
-                        className="block text-darkGray4 font-regular text-xs md:text-lg mb-2"
-                      >
-                        Email
-                      </label>
-                      <Field
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="exemple@email.com"
-                        className={`w-full px-4 py-2 md:py-3 rounded-lg border ${
-                          errors.email && touched.email
-                            ? " border-red-500"
-                            : "dark:border-slate-600 border-slate-300"
-                        }   text-neutral-800 dark:text-neutral-200  placeholder-placeholder bg-transparent focus:ring-blue-500 focus:border-blue-500`}
-                      />
-                      <ErrorMessage
-                        name="email"
-                        component="div"
-                        className="text-red text-xs md:text-lg"
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label
-                        htmlFor="password"
-                        className="block text-darkGray4 font-regular text-xs md:text-lg mb-2"
-                      >
-                        Gender
-                      </label>
-                      <Field
-                        type="text"
-                        id="gender"
-                        name="gender"
-                        placeholder="Enter your gender"
-                        className={`w-full px-4 py-2 md:py-4 rounded-lg border ${
-                          errors.gender && touched.gender
-                            ? "border-red-500"
-                            : "dark:border-slate-600 border-slate-300"
-                        } text-neutral-800 dark:text-neutral-200  placeholder-placeholder bg-transparent focus:ring-blue-500 focus:border-blue-500`}
-                      />
-                      <ErrorMessage
-                        name="gender"
-                        component="div"
-                        className="text-red text-xs md:text-lg"
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label
-                        htmlFor="address"
-                        className="block text-darkGray4 font-regular text-xs md:text-lg mb-2"
-                      >
-                        Address
-                      </label>
-                      <Field
-                        type="text"
-                        id="address"
-                        name="address"
-                        placeholder="Enter your address"
-                        className={`w-full px-4 py-2 md:py-4 rounded-lg border ${
-                          errors.address && touched.address
-                            ? "border-red-500"
-                            : "dark:border-slate-600 border-slate-300"
-                        } text-neutral-800 dark:text-neutral-200  placeholder-placeholder bg-transparent focus:ring-blue-500 focus:border-blue-500`}
-                      />
-                      <ErrorMessage
-                        name="address"
-                        component="div"
-                        className="text-red text-xs md:text-lg"
-                      />
-                    </div>
-                    <ButtonPrimary
-                      className="w-full rounded-lg bg-primaryBtnColor"
-                      type="submit"
-                    >
-                      {loading ? "Loading..." : "Continue"}
-                    </ButtonPrimary>
-                  </Form>
-                )}
-              </Formik>
+         <div className="flex-grow mt-10 md:mt-0 md:pl-16 max-w-3xl space-y-6">
+            <div>
+              <Label>Names</Label>
+              <Input 
+              className="mt-1.5 rounded-lg"
+              value={names} onChange={(e) => setNames(e.target.value)}
+              />
             </div>
-          ) : !selectedCategory ? (
+            <div>
+              <Label>Email</Label>
+              <Input 
+              className="mt-1.5 rounded-lg"
+              type="email"
+              value={email} onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Phone</Label>
+              <Input 
+              className="mt-1.5 rounded-lg"
+              type="text"
+              value={phone} onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Address</Label>
+              <Input 
+              className="mt-1.5 rounded-lg"
+              type="text"
+              value={address} onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Gender</Label>
+              <Input 
+              className="mt-1.5 rounded-lg"
+              type="text"
+              value={gender} onChange={(e) => setGender(e.target.value)}
+              />
+            </div>
+            </div>
+            <div className="pt-2">
+                <PrimaryButton 
+                loading={loading}
+                disabled={loading}
+                fontSize="text-lg"
+                className="rounded-lg bg-primaryBtnColor w-full md:w-fit text-typoPrimaryColor font-semibold"
+                onClick={() => handleSubmit()}
+                >
+                {loading ? (
+                "Submiting...") : ("Submit Order" )}</PrimaryButton>
+            </div>
+          </div>
+          ) : 
+           user && next === "personalInfo" && selectedCategory ? <div className="pt-2">
+                <PrimaryButton 
+                loading={loading}
+                disabled={loading}
+                fontSize="text-lg"
+                className="rounded-lg bg-primaryBtnColor w-full md:w-fit text-typoPrimaryColor font-semibold"
+                onClick={() => handleSubmit()}
+                >
+                {loading ? (
+                "Submiting...") : ("Submit Order" )}</PrimaryButton>
+            </div>:
+  
+            
+          
+          !selectedCategory ? (
             <>
               {categories &&
                 categories.map((category, index) => (
@@ -565,68 +504,10 @@ const AccountPage = () => {
                   </div>
                 ))}
             </>
-          ) : null}
+        ) : null}
         </div>
 
         <div className="col-span-12 md:col-span-4 h-fit rounded-lg shadow-lg flex flex-col gap-2">
-          {/* {selectedCategory ? (
-            <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                {selectedCategory?.names}
-              </h2>
-            </div>
-          ) : null}
-          {selectedVenue ? (
-            <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                Venue :{selectedVenue?.title}
-              </h2>
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                {selectedVenue?.price} Rwf
-              </h2>
-            </div>
-          ) : null}
-          {selectedCar ? (
-            <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                Car :{selectedCar?.title}
-              </h2>
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                {selectedCar?.price} Rwf
-              </h2>
-            </div>
-          ) : null}
-          {selectedPhoto ? (
-            <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                Photo/Video :{selectedPhoto?.title}
-              </h2>
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                {selectedPhoto?.price} Rwf
-              </h2>
-            </div>
-          ) : null}
-          {selectedCake ? (
-            <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                Cake :{selectedCake?.title}
-              </h2>
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                {selectedCake?.price} Rwf
-              </h2>
-            </div>
-          ) : null}
-          {selectedFood ? (
-            <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                Food/Drink :{selectedFood?.title}
-              </h2>
-              <h2 className="font-semibold text-md text-neutral-700 dark:text-typo-light">
-                {selectedFood?.price} Rwf
-              </h2>
-            </div>
-          ) : null} */}
-
           {selectedCategory && (
             <div className="col-span-12 md:col-span-4 w-full h-fit mt-4">
               <div className="p-2 rounded-lg bg-grey bg-opacity-30 pb-10">

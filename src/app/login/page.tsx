@@ -71,18 +71,10 @@ export default function PageLogin() {
       }
       if (res.payload == undefined) {
         setLoading(false);
-        if (loggedInUser) {
-          if (loggedInUser.role === "admin") {
-            router.push("/dashboard");
-            return;
-          } else {
-            router.push("/account");
-            return;
-          }
-        }
-        return;
+      router.push("/account");
+      setLoading(false);
+      return
       }
-      router.push("/login");
       setLoading(false);
     } catch (error: any) {
       // Handle login error (e.g., show an error message)
