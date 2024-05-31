@@ -35,7 +35,6 @@ const SectionSliderProductCard: FC<SectionSliderProductCardProps> = ({
     dispatch(getProductsFromDB());
     
   }, [dispatch]);
-  console.log(products)
 
   useEffect(() => {
     const OPTIONS: Partial<Glide.Options> = {

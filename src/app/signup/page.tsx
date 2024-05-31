@@ -67,7 +67,6 @@ export default function PageRegister() {
     { setSubmitting }: FormikHelpers<LoginFormValues>
   ) => {
     try {
-      console.log("The values: ", values);
       setLoading(true);
       const res = await dispatch(emailPasswordRegistration(values));
       if (!res) {
