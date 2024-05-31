@@ -1,7 +1,8 @@
 // Category.ts
 export interface Category {
   id: string;
-  name: string;
+  names: string;
   color: string;
   image: string;
+  about: string;
 }

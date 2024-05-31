@@ -6,6 +6,7 @@ import categoryReducer from "./features/categorySlice";
 import shippingAddressReducer from "./features/address/shippingAddressSlice";
 import groupReducer from "./features/groupSlice";
 import {contentReducer} from "./features/search";
+import orderReducer from "./features/order/orderSlice";
 // import {addressReducer} from "./features/address";
 import walletReducer from "./features/wallet/walletSlice";
 
@@ -13,6 +14,7 @@ export const store = configureStore({
   reducer: {
     product: productReducer,
     cart: cartReducer,
+    order: orderReducer,
     auth: authReducer,
     category: categoryReducer,
     group: groupReducer,
